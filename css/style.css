@@ -10,7 +10,10 @@
 }
 
 body {
-	background-color: #babab8;
+	background-color: #999997;
+	display: flex;
+	justify-content: center;
+	
 }
 
 /* Calculadora */
@@ -19,11 +22,13 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	background-color: #babab8;
 }
 
 /*Display*/
 header{
 	width: 100%;
+	
 }
 
 .display {
@@ -79,4 +84,12 @@ header{
 .row .btn:last-child:hover {
 	background-color: #0062b1;
 	border-color: #06508b;
+}
+
+/* Responsividade*/
+@media screen and (min-width: 500px){
+	.calculator{
+		width: 500px;
+		margin-top: 70px;
+	}
 }
