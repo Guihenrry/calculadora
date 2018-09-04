@@ -2,26 +2,26 @@ class CalculatorController {
     constructor(){
         this._display = document.querySelector('.display');
         this._btns = document.querySelectorAll('.btn')
-
+        this._operation = [] //Array que guardara os operadores e numeros  
         this.inititialize();
     }
-    // executar assim que é aberta a calculadora
-    inititialize(){
+    
+    inititialize(){// executar assim que é aberta a calculadora
         this.getButtons();
     }
-    // Pegar e colocar um valor no display 
-    get display(){
+    
+    get display(){// Pegar e colocar um valor no display 
         return this._display.innerHTML;
     } 
 
     set display(value){
         this._display.innerHTML = value;
     }
-    // Pegar todos os botões colocar evento click pegar classe e manda execultar 
-    getButtons(){
+     
+    getButtons(){// Pegar todos os botões colocar evento click pegar classe e manda execultar
         let buttons = document.querySelectorAll('.btn');
-        //adicionar event click
-       buttons.forEach((btn, index)=>{
+        
+       buttons.forEach((btn, index)=>{//adicionar event click
             btn.addEventListener('click', e => {
 
                 let classBtn = btn.classList[2];
@@ -31,29 +31,32 @@ class CalculatorController {
 
     }
 
-    //Execulta buttons pela classe 
-    execBtn(classBtn){
+    clearAll(){// metodo do c apaga tudo 
+        this._operation = [];
+    }
+
+    execBtn(classBtn){//Execulta buttons pela classe 
         switch(classBtn){
             case 'ce':
                 console.log("OP");
                 break;
             case 'c':
-                console.log("OP");
+                this.clearAll();
                 break;
             case 'del':
                 console.log("OP");
                 break;
             case 'divisao':
-                console.log("OP");
+                this.addOperation('/');
                 break;
             case 'multiplicacao':
-                console.log("OP");
+                this.addOperation('*');
                 break;
             case 'subtracao':
-                console.log("OP");
+                this.addOperation('-');
                 break;
             case 'soma':
-                console.log("OP");
+                this.addOperation('+');
                 break;
             case 'ponto':
                 console.log("OP");
@@ -71,7 +74,7 @@ class CalculatorController {
             case '7':
             case '8':
             case '9':
-                console.log("numero");
+                this.addOperation(parseInt(classBtn));
                 break;
             case 'igual':
                 console.log("IGUAL");
