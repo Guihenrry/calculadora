@@ -43,7 +43,7 @@ class CalculatorController {
             case 'c':
                 this.clearAll();
                 break;
-            case 'del':
+            case 'parentese':
                 console.log("OP");
                 break;
             case 'divisao':
@@ -84,10 +84,12 @@ class CalculatorController {
 
     clearEntry(){//metodo que apaga o ultimo item do array
         this._operation.pop();
+        this.showDisplay();
     }
 
     clearAll(){// metodo do c apaga tudo 
         this._operation = [];
+        this.showDisplay();
     }
 
     addOperation(value){
