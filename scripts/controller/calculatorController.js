@@ -31,12 +31,8 @@ class CalculatorController {
 
     }
 
-    clearAll(){// metodo do c apaga tudo 
-        this._operation = [];
-    }
-
-    clearEntry(){//metodo que apaga o ultimo item do array
-        this._operation.pop();
+    showDisplay(){ // transforma o array da operação e mostrar no display 
+        this.display = this._operation.join('');
     }
 
     execBtn(classBtn){//Execulta buttons pela classe 
@@ -86,8 +82,17 @@ class CalculatorController {
         }
     }
 
-    addOperation(){
+    clearEntry(){//metodo que apaga o ultimo item do array
+        this._operation.pop();
+    }
 
+    clearAll(){// metodo do c apaga tudo 
+        this._operation = [];
+    }
+
+    addOperation(value){
+        this._operation.push(value);
+        this.showDisplay();
     }
      
 }
