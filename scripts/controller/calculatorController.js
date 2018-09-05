@@ -35,10 +35,14 @@ class CalculatorController {
         this._operation = [];
     }
 
+    clearEntry(){//metodo que apaga o ultimo item do array
+        this._operation.pop();
+    }
+
     execBtn(classBtn){//Execulta buttons pela classe 
         switch(classBtn){
             case 'ce':
-                console.log("OP");
+                this.clearEntry();
                 break;
             case 'c':
                 this.clearAll();
@@ -80,6 +84,10 @@ class CalculatorController {
                 console.log("IGUAL");
                 break;
         }
+    }
+
+    addOperation(){
+
     }
      
 }
