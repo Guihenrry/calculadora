@@ -4,6 +4,7 @@ class CalculatorController {
         this._btns = document.querySelectorAll('.btn')
         this._operation = [] //Array que guardara os operadores e numeros  
         this.inititialize();
+        this._parenthesisOpem = false;
     }
     
     inititialize(){// executar assim que é aberta a calculadora
@@ -44,7 +45,7 @@ class CalculatorController {
                 this.clearAll();
                 break;
             case 'parentese':
-                console.log("OP");
+                this.changeParenthesis();
                 break;
             case 'divisao':
                 this.addOperation('/');
@@ -89,6 +90,17 @@ class CalculatorController {
 
     clearAll(){// metodo do c apaga tudo 
         this._operation = [];
+        this.showDisplay();
+    }
+
+    changeParenthesis(){//metodo para abrir e fechar parentese
+        if(this._parenthesisOpem){
+            this._operation.push(')');
+            this._parenthesisOpem = false;
+        } else {
+            this._operation.push('(');
+            this._parenthesisOpem = true;
+        }
         this.showDisplay();
     }
 
