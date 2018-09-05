@@ -78,7 +78,7 @@ class CalculatorController {
                 this.addOperation(parseInt(classBtn));
                 break;
             case 'igual':
-                console.log("IGUAL");
+                this.calc();
                 break;
         }
     }
@@ -107,6 +107,12 @@ class CalculatorController {
     addOperation(value){
         this._operation.push(value);
         this.showDisplay();
+    }
+
+    calc(){//metodo que calcula
+        let expre = this._operation.join('');
+        this._operation = [eval(expre)];
+        this.display = this._operation;
     }
      
 }
