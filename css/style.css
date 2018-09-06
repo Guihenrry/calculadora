@@ -77,12 +77,12 @@ header{
 	font-weight: 600;
 }
 
-.btn:hover {
+.btn:active {
 	background-color: #a9a9a7;
 	border: 1px solid #878787;
 }
 
-.row .btn:last-child:hover {
+.row .btn:last-child:active {
 	background-color: #0062b1;
 	border-color: #06508b;
 }
