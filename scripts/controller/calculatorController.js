@@ -9,6 +9,13 @@ class CalculatorController {
     
     inititialize(){// executar assim que é aberta a calculadora
         this.getButtons();
+        this.initZero();
+    }
+
+    initZero(){// metodo que coloca 0 quando esta vazio 
+        if(this._operation.length == 0){
+            this._display.innerHTML = 0;
+        }
     }
     
     get display(){// Pegar e colocar um valor no display 
@@ -86,11 +93,13 @@ class CalculatorController {
     clearEntry(){//metodo que apaga o ultimo item do array
         this._operation.pop();
         this.showDisplay();
+        this.initZero();
     }
 
     clearAll(){// metodo do c apaga tudo 
         this._operation = [];
         this.showDisplay();
+        this.initZero();
     }
 
     changeParenthesis(){//metodo para abrir e fechar parentese
