@@ -30,11 +30,21 @@ class CalculatorController {
         let buttons = document.querySelectorAll('.btn');
         
        buttons.forEach((btn, index)=>{//adicionar event click
-            btn.addEventListener('click', e => {
+            this.addEventListenerAll(btn, 'click drag', e => {
 
                 let classBtn = btn.classList[2];
                 this.execBtn(classBtn)
             });
+        })
+
+    }
+
+    addEventListenerAll(element, events, fn){
+
+        events.split(' ').forEach(event => {
+
+            element.addEventListener(event, fn)
+
         })
 
     }
