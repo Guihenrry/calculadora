@@ -33,18 +33,16 @@ class CalculatorController {
             this.addEventListenerAll(btn, 'click drag', e => {
 
                 let classBtn = btn.classList[2];
-                this.execBtn(classBtn)
+                this.execBtn(classBtn);
             });
         })
 
     }
 
-    addEventListenerAll(element, events, fn){
+    addEventListenerAll(element, events, fn){// metodo que consegui colocar mais de um evento 
 
         events.split(' ').forEach(event => {
-
-            element.addEventListener(event, fn)
-
+            element.addEventListener(event, fn);
         })
 
     }
