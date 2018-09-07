@@ -75,7 +75,7 @@ class CalculatorController {
                 this.addOperation('+');
                 break;
             case 'ponto':
-                console.log("OP");
+                this.addOperation('.');
                 break;
             case 'tsinal':
                 console.log("OP");
@@ -120,10 +120,28 @@ class CalculatorController {
         }
         this.showDisplay();
     }
+    
+    addOperation(value){//metodo que adiciona um operador ou numero 
+        if ( isNaN(this.getLastOperation()) ) {
+            if (this.isOperator(value)) {
+                this._operation[this._operation.length-1] = value;
+                this.showDisplay();
+            } else{
+                this._operation.push(value);
+                this.showDisplay();
+            }
+        } else {
+            this._operation.push(value);
+            this.showDisplay();
+        }
+    }
 
-    addOperation(value){
-        this._operation.push(value);
-        this.showDisplay();
+    getLastOperation(){// pegar o ultimo intem do array 
+        return this._operation[this._operation.length-1];
+    }
+
+    isOperator(value){// verificar se é um sinal 
+        return (['+', '-', '*', '/', '.'].indexOf(value) > -1);
     }
 
     calc(){//metodo que calcula
