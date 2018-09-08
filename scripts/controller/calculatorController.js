@@ -128,10 +128,12 @@ class CalculatorController {
                 this.showDisplay();
             } else{
                 this._operation.push(value);
+                this.qtdDisplay();
                 this.showDisplay();
             }
         } else {
             this._operation.push(value);
+            this.qtdDisplay();
             this.showDisplay();
         }
     }
@@ -151,6 +153,12 @@ class CalculatorController {
             this.display = this._operation;
         } catch (error) {
             this.display = 'Error';
+        }
+    }
+
+    qtdDisplay(){//metodo que limita a quantidade no display 
+        if(this._operation.length > 15){
+            this._operation.pop();
         }
     }
      
