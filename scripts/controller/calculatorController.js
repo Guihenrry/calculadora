@@ -145,9 +145,13 @@ class CalculatorController {
     }
 
     calc(){//metodo que calcula
-        let expre = this._operation.join('');
-        this._operation = [eval(expre)];
-        this.display = this._operation;
+        try {
+            let expre = this._operation.join('');
+            this._operation = [eval(expre)];
+            this.display = this._operation;
+        } catch (error) {
+            this.display = 'Error';
+        }
     }
      
 }
