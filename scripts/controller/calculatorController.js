@@ -10,6 +10,7 @@ class CalculatorController {
     inititialize(){// executar assim que é aberta a calculadora
         this.getButtons();
         this.initZero();
+        this.initKeyboard();
     }
 
     initZero(){// metodo que coloca 0 quando esta vazio 
@@ -160,6 +161,58 @@ class CalculatorController {
         if(this._operation.length > 15){
             this._operation.pop();
         }
+    }
+
+    initKeyboard(){//metodo que adiciona evento do teclado 
+        document.addEventListener('keyup',tecla => {
+
+            switch (tecla.key) {
+                case 'Backspace':
+                    this.clearEntry();
+                    break;
+                case 'Escape':
+                    this.clearAll();
+                    break;
+                case '(': 
+                case ')':
+                    this.changeParenthesis();
+                    break;
+                case '/':
+                    this.addOperation('/');
+                    break;
+                case 'x':
+                case '*':
+                    this.addOperation('*');
+                    break;
+                case '-':
+                    this.addOperation('-');
+                    break;
+                case '+':
+                    this.addOperation('+');
+                    break;
+                case '.':
+                case ',':
+                    this.addOperation('.');
+                    break;
+                case '0':
+                case '1':
+                case '2':
+                case '3':
+                case '4':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                    this.addOperation(tecla.key);
+                    break;
+                case 'Enter':
+                case '=':
+                    this.calc();
+                    break;
+            }
+          
+        })
     }
      
 }
